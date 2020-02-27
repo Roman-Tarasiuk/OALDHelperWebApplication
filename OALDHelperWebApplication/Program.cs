@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 
-namespace TestWebApplication
+namespace OALDHelperWebApplication
 {
     public class Program
     {
