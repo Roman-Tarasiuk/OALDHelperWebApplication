@@ -17,14 +17,14 @@ namespace OALDHelperWebApplication.Controllers
             var fileNameWithoutExt = Path.GetFileNameWithoutExtension(url);
             var fileDownloadName = String.Empty;
 
-            if (extension != String.Empty &&
-                (fileName != fileNameWithoutExt || extensionIsImportant))
+            if (extension == String.Empty ||
+                (fileName == fileNameWithoutExt && !extensionIsImportant))
             {
-                fileDownloadName = fileNameWithoutExt + "." + extension;
+                fileDownloadName = fileName;
             }
             else
             {
-                fileDownloadName = fileName;
+                fileDownloadName = fileNameWithoutExt + "." + extension;
             }
 
 
