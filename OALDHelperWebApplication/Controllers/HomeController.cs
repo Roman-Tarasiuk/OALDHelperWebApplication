@@ -11,7 +11,8 @@ namespace OALDHelperWebApplication.Controllers
 {
     public class HomeController : Controller
     {
-        public IActionResult GetFile(string url, string extension = "jpg", bool extensionIsImportant = false)
+        public IActionResult GetFile(string url, string extension = "jpg",
+            bool extensionIsImportant = false, string mimeType = "application/octet-stream")
         {
             var fileName = Path.GetFileName(url);
             var fileNameWithoutExt = Path.GetFileNameWithoutExtension(url);
@@ -31,7 +32,7 @@ namespace OALDHelperWebApplication.Controllers
             var fileBytes = new WebClient().DownloadData(url);
 
             var result = File(fileContents: fileBytes,
-                            contentType: "application/octet-stream",
+                            contentType: mimeType,
                             fileDownloadName: fileDownloadName);
             result.LastModified = new DateTimeOffset(new DateTime(2020, 1, 1));
 
